@@ -1,5 +1,16 @@
-# Bem-vindo ao portfolio
+# Bem-vindo ao Techdoc Solutions
 
-O portfólio apresenta um artigo sobre o PIX (o Sistema de Pagamentos Instantâneos do Brasil) e Cyber Security, explicando os aspectos técnicos e funcionamento.
+Neste repositório você irá encontrar amostras de artigos e documentações de API realizadas pelas pessoas tech writers da Techdoc Solutions. São diferentes tipos de documentações, escritas em português brasileiro e inglês, mostrando todo o escopo da atuação do nosso time. 
 
-Além disso, oferece (Open API) acessível em ambos os idiomas, português e inglês, proporcionando uma maneira flexível de interagir com os serviços e dados disponíveis. Juntos, esses elementos demonstram meu compromisso com a comunicação técnica e o desenvolvimento de soluções acessíveis e versáteis.
+Juntos, esses elementos demonstram nosso compromisso com a comunicação técnica e o desenvolvimento de soluções acessíveis e versáteis.
+
+Sinta-se à vontade pra conferir as documentações e em caso de dúvidas, entre em contato conosco: [E-mail](mailto:techdocsolutions.br@gmail.com)
+
+## Sumário
+
+- [Artigos](Artigos)
+- [Documentações de API](APIs)
+
+---
+
+*Techdoc Solutions: simplificando o complexo*
