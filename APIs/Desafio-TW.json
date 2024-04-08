@@ -1,0 +1,460 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Desafio TW",
+    "description": "Esta API oferece funcionalidades para autenticar, autorizar acesso e gerenciar informações de portadores.\r\n\r\nPara mais informações acesse [aqui](https://matthewsls.stoplight.io/docs/intro-docs-reference/docs/desafio-tw)"
+  },
+  "servers": [
+    {
+      "url": "https://horizon-api-sb.app.rpe.tech"
+    },
+    {
+      "url": "http://{{gateway}}portadores"
+    }
+  ],
+  "paths": {
+    "/oauth2/token": {
+      "post": {
+        "tags": [
+          "Autorizacao"
+        ],
+        "summary": "Emitir token de acesso",
+        "description": "Use esse endpoint para emitir token de acesso para usuários.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Tipo de informação enviada pela aplicação através do corpo do pedido.",
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "examples": {
+              "default": {
+                "value": "application/x-www-form-urlencoded"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "description": "Especifica o tipo de concessão usado para autenticar o cliente e obter um token de acesso.",
+                    "example": "password"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Nome de usuário.",
+                    "example": "rpe-sandbox"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Senha do usuário.",
+                    "example": "1Rpe@dmi4.22"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      }
+    },
+    "/2001": {
+      "get": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Consultar detalhes de uma pessoa portadora",
+        "description": "Use esse endpoint para retornar os detalhes de uma pessoa portadora específica.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Atualizar dados de uma pessoa portadora",
+        "description": "Use esse endpoint para atualizar os dados de uma pessoa portadora específica.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "description": "Especifica o tipo de informação que o cliente está disposto a aceitar da API em uma resposta.",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            },
+            "examples": {
+              "default": {
+                "value": "*/*"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Tipo de informação enviada pela aplicação através do corpo do pedido.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            },
+            "examples": {
+              "default": {
+                "value": "application/json"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "*/*": {
+                    "type": "string",
+                    "description": "Informações que serão alteradas."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      }
+    },
+    "/2001/telefones": {
+      "get": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Consultar o telefone de uma pessoa portadora",
+        "description": "Use esse endpoint para consultar um telefone de uma pessoa portadora especifica.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "description": "Especifica o tipo de informação que o cliente está disposto a aceitar da API em uma resposta.",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            },
+            "examples": {
+              "default": {
+                "value": "*/*"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Registrar telefone de uma pessoa portadora",
+        "description": "Use esse endpoint para registar um telefone de uma pessoa portadora.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "description": "Especifica o tipo de informação que o cliente está disposto a aceitar da API em uma resposta.",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            },
+            "examples": {
+              "default": {
+                "value": "*/*"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Tipo de informação enviada pela aplicação através do corpo do pedido.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            },
+            "examples": {
+              "default": {
+                "value": "application/json"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"tipo\\\": \\\"CELULAR\\\",\\n  \\\"ramal\\\": \\\"4020\\\",\\n  \\\"area\\\": \\\"83\\\",\\n  \\\"telefone\\\": \\\"999999999\\\",\\n  \\\"receberSMS\\\": false,\\n  \\\"faturaDigital\\\": false\\n}\""
+              },
+              "examples": {
+                "default": {
+                  "value": "\"{\\n  \\\"tipo\\\": \\\"CELULAR\\\",\\n  \\\"ramal\\\": \\\"4020\\\",\\n  \\\"area\\\": \\\"83\\\",\\n  \\\"telefone\\\": \\\"999999999\\\",\\n  \\\"receberSMS\\\": false,\\n  \\\"faturaDigital\\\": false\\n}\""
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      }
+    },
+    "/bloqueios": {
+      "post": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Bloquear pessoa portadora",
+        "description": "Use esse endpoint para bloquear uma pessoa portadora.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "description": "Especifica o tipo de informação que o cliente está disposto a aceitar da API em uma resposta.",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            },
+            "examples": {
+              "default": {
+                "value": "*/*"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Tipo de informação enviada pela aplicação através do corpo do pedido.",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            },
+            "examples": {
+              "default": {
+                "value": "application/json"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"idTipoBloqueio\\\": 15,\\n  \\\"idTitular\\\": 2001,\\n  \\\"idUsuario\\\": 1,\\n  \\\"observacao\\\": \\\"Bloqueado\\\"\\n}\""
+              },
+              "examples": {
+                "default": {
+                  "value": "\"{\\n  \\\"idTipoBloqueio\\\": 15,\\n  \\\"idTitular\\\": 2001,\\n  \\\"idUsuario\\\": 1,\\n  \\\"observacao\\\": \\\"Bloqueado\\\"\\n}\""
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      }
+    },
+    "/2001/telefones/1": {
+      "delete": {
+        "tags": [
+          "Portador API"
+        ],
+        "summary": "Deletar um telefone de uma portadora",
+        "description": "Use esse endpoint para deletar o telefone de uma pessoa portadora.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "description": "Especifica o tipo de informação que o cliente está disposto a aceitar da API em uma resposta.",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            },
+            "examples": {
+              "default": {
+                "value": "*/*"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://horizon-api-sb.app.rpe.tech"
+          },
+          {
+            "url": "http://{{gateway}}portadores"
+          }
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Autorizacao"
+    },
+    {
+      "name": "Portador API"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "Authorization": {
+        "type": "apiKey",
+        "description": "Uma chave de API é um token que fornece quando faz chamadas de API. Inclua o token em um parâmetro de cabeçalho chamado `Authorization`.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
+}
