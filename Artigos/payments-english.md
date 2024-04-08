@@ -60,7 +60,7 @@ This API not only simplifies payments processes but also enhances transparency a
 
 The world of payments means that the status of transactions is crucial for both companies and their customers. To simplify this process, payments APIs play a key role in ensuring transparency and efficiency. This article will explain the payments API that handles seven essential payments status: **Enrolled**, **Expired**, **Ready to Enroll**, **Enrolling in Process**, **Created**, **Canceled**, and **Rejected**.
 
-![Flowchart.jpg](../assets/images/Flowchart.jpg "Figure 1. Flow status.")
+![Flowchart.jpg](../assets/images/Flowchart.jpg "Flow status")
 
 
 #### Enrolled
